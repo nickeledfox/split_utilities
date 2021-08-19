@@ -44,11 +44,11 @@ class PDFReport:
         # payers info/ billing cycle amount
         pdf.cell(7, 65, payer1.first_name[0]+'.',)
         pdf.cell(70, 65, payer1.last_name+' '+'payment due:',)
-        pdf.cell(-77, 65, str(payer1.payment(bill, roommate2)),)
+        pdf.cell(-77, 65, str(round(payer1.payment(bill, roommate2), 2)))
 
         pdf.cell(7, 85, payer2.first_name[0] + '.', )
-        pdf.cell(70, 85, payer2.last_name + ' ' + 'payment due:', )
-        pdf.cell(-1, 85, str(payer2.payment(bill, roommate1)), )
+        pdf.cell(70, 85, payer2.last_name + ' ' + 'payment due:')
+        pdf.cell(-1, 85, str(round(payer2.payment(bill, roommate1), 2)))
 
         pdf.output(self.filename)
 
