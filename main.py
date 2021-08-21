@@ -28,22 +28,25 @@ class PDFReport:
         pdf.image('img/house.png', x=95, y=5, w=15, h=15)
 
         # title
+        pdf.set_text_color(105, 105, 105)
         pdf.cell(-60, 35, 'Split Utilities Bill', 'C')
 
-        # bill date
+        # bill date and total
         pdf.set_font('Times', 'B', 16)
-        pdf.cell(20, 65, 'Period:',)
-        pdf.cell(-20, 65, bill.period.capitalize())
+        pdf.cell(1, 60, 'Period: '+bill.period.capitalize())
+
         pdf.set_font('Times', '', 16)
+        pdf.cell(5, 75, 'Payers: '+payer1.first_name.capitalize()+" "+payer1.last_name.capitalize()+' and '+payer2.first_name.capitalize()+" "+payer2.last_name.capitalize())
+        pdf.cell(1, 90, 'Total:'+" "+str(total_amount))
 
         # payers info/ billing cycle amount
-        pdf.cell(7, 85, payer1.first_name[0].capitalize() + '.')
-        pdf.cell(70, 85, payer1.last_name.capitalize()+' '+'payment due is: ')
-        pdf.cell(-77, 85, payer1_bill)
+        pdf.cell(5, 115, payer1.first_name[0].capitalize() + '.'+' ')
+        pdf.cell(60, 115, payer1.last_name.capitalize()+' '+'payment due is: ')
+        pdf.cell(-65, 115, payer1_bill)
 
-        pdf.cell(7, 100, payer2.first_name[0].capitalize() + '.')
-        pdf.cell(70, 100, payer2.last_name.capitalize() + ' '+'payment due is: ')
-        pdf.cell(-1, 100, payer2_bill)
+        pdf.cell(5, 130, payer2.first_name[0].capitalize() + '.'+' ')
+        pdf.cell(60, 130, payer2.last_name.capitalize() + ' '+'payment due is: ')
+        pdf.cell(-1, 130, payer2_bill)
 
         pdf.output(f'pdf/{self.filename}')
 
