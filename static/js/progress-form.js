@@ -1,5 +1,7 @@
 'use strict';
 
+// Created by: https://www.codingnepalweb.com/multi-step-form-html-css-javascript/
+// with card design so I didn't change it, only customized the UI part a bit
 const slidePage = document.querySelector('.slide-page');
 const nextBtnFirst = document.querySelector('.firstNext');
 const prevBtnSec = document.querySelector('.prev-1');
