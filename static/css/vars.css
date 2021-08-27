@@ -1,0 +1,14 @@
+:root {
+  --button-bg: #6495ed;
+  --background: rgba(247, 202, 201, 1) 0%, rgba(146, 168, 209, 1) 100%;
+  --bluegreen-bg: #6998a3;
+  --hover: #97bc62ff;
+  --border: #6998a34b;
+  --progress: #65b305;
+  --font: #415a74;
+
+  --text-shadow: 1px 1px rgba(0, 0, 0, 0.02), 2px 2px rgba(0, 0, 0, 0.02),
+    3px 3px rgba(0, 0, 0, 0.02), 4px 4px rgba(0, 0, 0, 0.02),
+    5px 5px rgba(0, 0, 0, 0.02), 6px 6px rgba(0, 0, 0, 0.02),
+    7px 7px rgba(0, 0, 0, 0.02);
+}
