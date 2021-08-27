@@ -1,4 +1,3 @@
-# hello = input('Hello! I\'ll walk you through the bill splitting process.\nPress "Enter" to move forward ')
 user_firstname = input('Enter your first name, please ')
 user_lastname = input('Enter your lastname, please ')
 billing_period = input('What is the billing date? ')
