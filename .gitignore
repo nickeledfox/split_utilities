@@ -4,4 +4,4 @@
 __pycache__
 .idea
 .vscode
-.node_modules
+node_modules

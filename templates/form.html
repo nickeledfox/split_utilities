@@ -4,20 +4,25 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+      integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm"
+      crossorigin="anonymous"
+    />
     <link
       rel="icon"
       type="image/ico"
       href="../static/images/Double-J-Design-Origami-Colored-Pencil-Blue-home.ico"
     />
-    <link rel="stylesheet" href="../static/css/form.css" />
+    <link rel="stylesheet" href="../static/css/bundle.css" />
     <title>Split Utilities form</title>
   </head>
-  <body>
+  <body class="form__body">
     <!-------------------------- form ----------------------->
-    <div class="wrapper">
+    <div class="form__wrapper">
       <div class="form-container">
-        <header>Bill splitting form</header>
+        <header class="form__header">Bill splitting form</header>
         <div class="progress-bar">
           <div class="step">
             <p>Name</p>
@@ -76,8 +81,11 @@
               </div>
               <div class="field">
                 <div class="label">Total amount</div>
-                <input type="Number" name="bill_total" />placeholder="Bill
-                total" />
+                <input
+                  type="Number"
+                  name="bill_total"
+                  placeholder="Bill total"
+                />
               </div>
               <div class="field">
                 <div class="label">Days spent at home</div>
@@ -88,8 +96,12 @@
                 />
               </div>
               <div class="field btns">
-                <button class="prev-1 prev">Go Back</button>
-                <button class="next-1 next">Next Step</button>
+                <button class="prev-1 prev">
+                  <i class="fas fa-caret-left"></i> Go Back
+                </button>
+                <button class="next-1 next">
+                  Next Step <i class="fas fa-caret-right"></i>
+                </button>
               </div>
             </div>
             <div class="page">
@@ -104,11 +116,15 @@
               </div>
               <div class="field">
                 <div class="label">Email Address</div>
-                <input type="text" name="roommate_email" />ail/>
+                <input type="text" name="roommate_email" />
               </div>
               <div class="field btns">
-                <button class="prev-2 prev">Go Back</button>
-                <button class="next-2 next">Next Step</button>
+                <button class="prev-2 prev">
+                  <i class="fas fa-caret-left"></i> Go Back
+                </button>
+                <button class="next-2 next">
+                  Next Step <i class="fas fa-caret-right"></i>
+                </button>
               </div>
             </div>
             <div class="page">
@@ -155,7 +171,9 @@
                 </div>
               </div>
               <div class="field btns details-btns">
-                <button class="prev-3 prev">Go Back</button>
+                <button class="prev-3 prev">
+                  <i class="fas fa-caret-left"></i> Go Back
+                </button>
                 <button class="submit">Calculate</button>
               </div>
             </div>
@@ -168,6 +186,6 @@
         <img src="../static/images/pngegg.png" alt="keys" />
       </div>
     </div>
-    <script src="../static/js/progress-form.js"></script>
+    <script src="../static/js/main.min.js"></script>
   </body>
 </html>

@@ -1,13 +1,6 @@
-@import "vars.css";
 @import url("https://fonts.googleapis.com/css?family=Poppins:500,700&display=swap");
 
-* {
-  margin: 0;
-  padding: 0;
-  outline: none;
-  font-family: "Poppins", sans-serif;
-}
-body {
+.form__body {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -17,18 +10,15 @@ body {
   background: -webkit-linear-gradient(-45deg, var(--background));
   background: linear-gradient(135deg, var(--background));
   color: var(--font);
+  font-family: "Poppins", sans-serif;
 }
-header {
+.form__header {
   text-shadow: var(--text-shadow);
-}
-::selection {
-  color: #fff;
-  background: var(--button-bg);
 }
 ::placeholder {
   color: var(--border);
 }
-.wrapper {
+.form__wrapper {
   border-radius: 5px;
   display: flex;
   justify-content: center;
@@ -112,7 +102,7 @@ form .page .field select {
 }
 form .page .field button {
   width: 100%;
-  height: calc(100% + 5px);
+  height: 3.3rem;
   border: none;
   background: var(--bluegreen-bg);
   margin-top: -20px;
@@ -124,6 +114,13 @@ form .page .field button {
   text-transform: uppercase;
   transition: 0.5s ease;
   border-radius: 5px;
+}
+button i {
+  opacity: 0;
+  transition: 0.5s ease;
+}
+button:hover i {
+  opacity: 1;
 }
 
 form .page .field button:hover {
