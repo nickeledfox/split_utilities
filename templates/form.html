@@ -14,7 +14,7 @@
     <title>Split Utilities form</title>
   </head>
   <body>
-    <!-------------------------- form----------------------->
+    <!-------------------------- form ----------------------->
     <div class="wrapper">
       <div class="form-container">
         <header>Bill splitting form</header>
@@ -27,14 +27,14 @@
             <div class="check fas fa-check"></div>
           </div>
           <div class="step">
-            <p>Contact</p>
+            <p>Bill</p>
             <div class="bullet">
               <span>2</span>
             </div>
             <div class="check fas fa-check"></div>
           </div>
           <div class="step">
-            <p>Birth</p>
+            <p>Info</p>
             <div class="bullet">
               <span>3</span>
             </div>
@@ -49,20 +49,20 @@
           </div>
         </div>
         <div class="form-outer">
-          <form action="#">
+          <form action="{{ url_for('gfg')}}" method="post">
             <div class="page slide-page">
               <div class="title">Basic Info:</div>
               <div class="field">
                 <div class="label">First Name</div>
-                <input type="text" />
+                <input type="text" name="user_firstname" />
               </div>
               <div class="field">
                 <div class="label">Last Name</div>
-                <input type="text" />
+                <input type="text" name="user_firstname" />
               </div>
               <div class="field">
                 <div class="label">Email Address</div>
-                <input type="text" />
+                <input type="text" name="user_email" />
               </div>
               <div class="field">
                 <button class="firstNext next">Next Step</button>
@@ -76,12 +76,14 @@
               </div>
               <div class="field">
                 <div class="label">Total amount</div>
-                <input type="Number" placeholder="Bill total" />
+                <input type="Number" name="bill_total" />placeholder="Bill
+                total" />
               </div>
               <div class="field">
                 <div class="label">Days spent at home</div>
                 <input
                   type="Number"
+                  name="user_days_spent"
                   placeholder="(during the billing period)"
                 />
               </div>
@@ -94,15 +96,15 @@
               <div class="title">Roommate Info:</div>
               <div class="field">
                 <div class="label">First Name</div>
-                <input type="text" />
+                <input type="text" name="roommate_fn" />
               </div>
               <div class="field">
                 <div class="label">Last Name</div>
-                <input type="text" />
+                <input type="text" name="roommate_ln" />
               </div>
               <div class="field">
                 <div class="label">Email Address</div>
-                <input type="text" />
+                <input type="text" name="roommate_email" />ail/>
               </div>
               <div class="field btns">
                 <button class="prev-2 prev">Go Back</button>
@@ -115,6 +117,7 @@
                 <div class="label">Days roommate spent at home</div>
                 <input
                   type="Number"
+                  name="roommate_days_spent"
                   placeholder="(during the billing period)"
                 />
               </div>
@@ -153,7 +156,7 @@
               </div>
               <div class="field btns details-btns">
                 <button class="prev-3 prev">Go Back</button>
-                <button class="submit">Next Step</button>
+                <button class="submit">Calculate</button>
               </div>
             </div>
           </form>
