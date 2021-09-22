@@ -1,0 +1,6 @@
+body {
+  background: rgb(247, 202, 201);
+  background: -moz-linear-gradient(-45deg, var(--background));
+  background: -webkit-linear-gradient(-45deg, var(--background));
+  background: linear-gradient(135deg, var(--background));
+}
