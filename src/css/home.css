@@ -5,15 +5,19 @@
   padding: 0;
   outline: none;
 }
+.body {
+  background: rgb(247, 202, 201);
+  background: -moz-linear-gradient(-45deg, var(--background));
+  background: -webkit-linear-gradient(-45deg, var(--background));
+  background: linear-gradient(135deg, var(--background));
+  min-height: 100vh;
+  overflow: hidden;
+}
 ::selection {
   color: var(--hover);
   background-color: #a4e5f4c0;
 }
 .home__body {
-  background: rgb(247, 202, 201);
-  background: -moz-linear-gradient(-45deg, var(--background));
-  background: -webkit-linear-gradient(-45deg, var(--background));
-  background: linear-gradient(135deg, var(--background));
   height: 100vh;
   font-family: "Roboto Mono", "Helvetica Neue";
   letter-spacing: 1px;

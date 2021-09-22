@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="../static/css/bundle.css" />
     <title>Split Utilities form</title>
   </head>
-  <body class="form__body">
+  <body class="body form__body">
     <!-------------------------- form ----------------------->
     <div class="form__wrapper">
       <div class="form-container">
@@ -54,7 +54,8 @@
           </div>
         </div>
         <div class="form-outer">
-          <form action="{{ url_for('form')}}" method="post">
+          <!-- <form action="{{ url_for('form')}}" method="post"> -->
+          <form action="/split">
             <div class="page slide-page">
               <div class="title">Basic Info:</div>
               <div class="field">
@@ -162,7 +163,7 @@
                 <button class="prev-3 prev">
                   <i class="fas fa-caret-left"></i> Go Back
                 </button>
-                <button class="submit">Calculate</button>
+                {{form.submit_button}}
               </div>
             </div>
           </form>

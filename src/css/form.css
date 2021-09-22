@@ -5,10 +5,6 @@
   align-items: center;
   justify-content: center;
   min-height: 100vh;
-  overflow: hidden;
-  background: -moz-linear-gradient(-45deg, var(--background));
-  background: -webkit-linear-gradient(-45deg, var(--background));
-  background: linear-gradient(135deg, var(--background));
   color: var(--font);
   font-family: "Poppins", sans-serif;
 }
@@ -100,7 +96,8 @@ form .page .field select {
   font-size: 17px;
   font-weight: 500;
 }
-form .page .field button {
+form .page .field button,
+input#submit_button {
   width: 100%;
   height: 3.3rem;
   border: none;
@@ -114,16 +111,20 @@ form .page .field button {
   text-transform: uppercase;
   transition: 0.5s ease;
   border-radius: 5px;
+  padding: 0;
 }
 button i {
+  visibility: hidden;
   opacity: 0;
-  transition: 0.5s ease;
+  transition: visibility 0s, opacity 0.5s linear;
 }
 button:hover i {
+  visibility: visible;
   opacity: 1;
 }
 
-form .page .field button:hover {
+form .page .field button:hover,
+input#submit_button:hover {
   background: var(--hover);
 }
 form .page .btns button {
@@ -131,7 +132,6 @@ form .page .btns button {
 }
 form .page .btns button.prev {
   margin-right: 3px;
-  font-size: 17px;
 }
 form .page .btns button.next {
   margin-left: 3px;
@@ -141,6 +141,7 @@ form .page .btns button.next {
   margin: 40px 0;
   user-select: none;
 }
+
 .form-container .progress-bar .step {
   text-align: center;
   width: 100%;

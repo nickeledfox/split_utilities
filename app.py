@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request
 from flask.views import MethodView
-from wtforms import Form, StringField
+from wtforms import Form, StringField, SubmitField
+from wtforms.fields.html5 import DateField
 
 app = Flask(__name__)
 
@@ -17,13 +18,22 @@ class BillFormPage(MethodView):
         return render_template('form.html', form=bill_form)
 
 class AmountPage(MethodView):
+
     def post(self):
         billform = BillForm(request.form)
         amount = billform.amount.data
         return amount
+
+class BillCalculatedPage(MethodView):
+
+    def get(self):
+        return render_template('split.html')
         
 
 class BillForm(Form):
+
+    date_posted = DateField('Date', format='%Y-%m-%d')
+
     user_firstname = StringField("First Name",)
     user_last_name = StringField("Last Name",)
     user_email = StringField("Email Address",)
@@ -45,14 +55,20 @@ class BillForm(Form):
         ("Days roommate spent at home",
          render_kw={"placeholder":
                         "(during the billing period)"})
+
+    submit_button = SubmitField("Calculate")
     
 
 @app.route('/', methods =["GET", "POST"])
+
 def index():
     return render_template('index.html')
 
 
 app.add_url_rule('/', view_func=HomePage.as_view('home_page'))
-app.add_url_rule('/form', view_func=BillFormPage.as_view('form'))
+app.add_url_rule('/form',
+                 view_func=BillFormPage.as_view('form'))
+app.add_url_rule('/split',
+                 view_func=BillCalculatedPage.as_view('split'))
 
 app.run(debug=True)
