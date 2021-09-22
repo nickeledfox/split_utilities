@@ -209,7 +209,7 @@ form .page .btns button.next {
 .progress-bar .step .check {
   position: absolute;
   left: 50%;
-  top: 70%;
+  top: 67%;
   font-size: 15px;
   transform: translate(-50%, -50%);
   display: none;

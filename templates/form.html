@@ -54,20 +54,20 @@
           </div>
         </div>
         <div class="form-outer">
-          <form action="{{ url_for('gfg')}}" method="post">
+          <form action="{{ url_for('form')}}" method="post">
             <div class="page slide-page">
               <div class="title">Basic Info:</div>
               <div class="field">
-                <div class="label">First Name</div>
-                <input type="text" name="user_firstname" />
+                <div class="label">{{form.user_firstname.label}}</div>
+                {{form.user_firstname}}
               </div>
               <div class="field">
-                <div class="label">Last Name</div>
-                <input type="text" name="user_firstname" />
+                <div class="label">{{form.user_last_name.label}}</div>
+                {{form.user_last_name}}
               </div>
               <div class="field">
-                <div class="label">Email Address</div>
-                <input type="text" name="user_email" />
+                <div class="label">{{form.user_email.label}}</div>
+                {{form.user_email}}
               </div>
               <div class="field">
                 <button class="firstNext next">Next Step</button>
@@ -76,24 +76,16 @@
             <div class="page">
               <div class="title">Billing Info:</div>
               <div class="field">
-                <div class="label">Billing date</div>
-                <input type="date" />
+                <div class="label">{{form.billing_period.label}}</div>
+                {{form.billing_period}}
               </div>
               <div class="field">
-                <div class="label">Total amount</div>
-                <input
-                  type="Number"
-                  name="bill_total"
-                  placeholder="Bill total"
-                />
+                <div class="label">{{form.bill_total.label}}</div>
+                {{form.bill_total}}
               </div>
               <div class="field">
-                <div class="label">Days spent at home</div>
-                <input
-                  type="Number"
-                  name="user_days_spent"
-                  placeholder="(during the billing period)"
-                />
+                <div class="label">{{form.user_days_spent.label}}</div>
+                {{form.user_days_spent}}
               </div>
               <div class="field btns">
                 <button class="prev-1 prev">
@@ -107,16 +99,16 @@
             <div class="page">
               <div class="title">Roommate Info:</div>
               <div class="field">
-                <div class="label">First Name</div>
-                <input type="text" name="roommate_fn" />
+                <div class="label">{{form.roommate_fn.label}}</div>
+                {{form.roommate_fn}}
               </div>
               <div class="field">
-                <div class="label">Last Name</div>
-                <input type="text" name="roommate_ln" />
+                <div class="label">{{form.roommate_ln.label}}</div>
+                {{form.roommate_ln}}
               </div>
               <div class="field">
-                <div class="label">Email Address</div>
-                <input type="text" name="roommate_email" />
+                <div class="label">{{form.roommate_email.label}}</div>
+                {{form.roommate_email}}
               </div>
               <div class="field btns">
                 <button class="prev-2 prev">
@@ -130,12 +122,8 @@
             <div class="page">
               <div class="title">Details:</div>
               <div class="field">
-                <div class="label">Days roommate spent at home</div>
-                <input
-                  type="Number"
-                  name="roommate_days_spent"
-                  placeholder="(during the billing period)"
-                />
+                <div class="label">{{form.roommate_days_spent.label}}</div>
+                {{form.roommate_days_spent}}
               </div>
               <div class="field radio">
                 <div class="label">Statment Email:</div>
