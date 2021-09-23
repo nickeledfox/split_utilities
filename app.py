@@ -1,7 +1,8 @@
 from flask import Flask, render_template, request
 from flask.views import MethodView
-from wtforms import Form, StringField, SubmitField
-from wtforms.fields.html5 import DateField
+
+from form import BillForm
+from split import params
 
 app = Flask(__name__)
 
@@ -11,53 +12,25 @@ class HomePage(MethodView):
         return render_template('index.html')
 
 
-class BillFormPage(MethodView):
+class FormPage(MethodView):
 
     def get(self):
         bill_form = BillForm()
         return render_template('form.html', form=bill_form)
 
-class AmountPage(MethodView):
+class FormProcessing(MethodView):
 
     def post(self):
         billform = BillForm(request.form)
-        amount = billform.amount.data
-        return amount
+        amount = billform.bill_total.data
+        period = billform.date_posted.data
 
-class BillCalculatedPage(MethodView):
+        bill = params.Bill(float(amount), period)
+        payer1 = params.Roommate(billform.user_firstname.data,billform.user_last_name.data, days_in_place=float(billform.user_days_spent.data))
+        payer2 = params.Roommate(billform.roommate_fn.data, billform.roommate_ln.data, days_in_place=float(billform.roommate_days_spent.data))
 
-    def get(self):
-        return render_template('split.html')
-        
+        return f'{payer1.first_name} pays {payer1.payment(bill, payer2)}'
 
-class BillForm(Form):
-
-    date_posted = DateField('Date', format='%Y-%m-%d')
-
-    user_firstname = StringField("First Name",)
-    user_last_name = StringField("Last Name",)
-    user_email = StringField("Email Address",)
-    billing_period = StringField("Billing date",)
-    user_days_spent = StringField\
-        ("Days spent at home",
-         render_kw={"placeholder":
-                        "(during the billing period)"})
-
-    bill_total = StringField\
-        ("Total amount",
-         render_kw={"placeholder":
-                        "Bill total amount"})
-
-    roommate_fn = StringField("First Name",)
-    roommate_ln = StringField("Last Name",)
-    roommate_email = StringField("Email Address")
-    roommate_days_spent = StringField\
-        ("Days roommate spent at home",
-         render_kw={"placeholder":
-                        "(during the billing period)"})
-
-    submit_button = SubmitField("Calculate")
-    
 
 @app.route('/', methods =["GET", "POST"])
 
@@ -67,8 +40,8 @@ def index():
 
 app.add_url_rule('/', view_func=HomePage.as_view('home_page'))
 app.add_url_rule('/form',
-                 view_func=BillFormPage.as_view('form'))
-app.add_url_rule('/split',
-                 view_func=BillCalculatedPage.as_view('split'))
+                 view_func=FormPage.as_view('form'))
+app.add_url_rule('/processed',
+                 view_func=FormProcessing.as_view('processed'))
 
 app.run(debug=True)
