@@ -56,7 +56,6 @@ def index():
 app.add_url_rule('/', view_func=HomePage.as_view('home_page'))
 app.add_url_rule('/form',
                  view_func=FormPage.as_view('form'))
-app.add_url_rule('/processed',
-                 view_func=FormProcessing.as_view('processed'))
+
 
 app.run(debug=True)
