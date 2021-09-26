@@ -16,12 +16,12 @@ class FormPage(MethodView):
 
     def get(self):
         bill_form = BillForm()
+        
         return render_template('form.html', form=bill_form)
+        
 
-class FormProcessing(MethodView):
 
     def post(self):
-
         form_data = BillForm(request.form)
 
         bill = params.Bill\
@@ -38,13 +38,18 @@ class FormProcessing(MethodView):
 
         return render_template\
             ('form.html', form=form_data,
+             calculated = True,
+
              payer1_firstname = payer1.first_name,
              payer1_lastname = payer1.last_name,
              payer1_total = payer1.payment(bill, payer2),
 
              payer2_firstname = payer2.first_name,
              payer2_lastname = payer2.last_name,
-             payer2_total = payer2.payment(bill, payer1))
+             payer2_total = payer2.payment(bill, payer1),
+
+             total = form_data.bill_total.data,
+             date = form_data.date_posted.data)
 
 
 @app.route('/', methods =["GET", "POST"])
@@ -53,7 +58,8 @@ def index():
     return render_template('index.html')
 
 
-app.add_url_rule('/', view_func=HomePage.as_view('home_page'))
+app.add_url_rule('/',
+                 view_func=HomePage.as_view('home_page'))
 app.add_url_rule('/form',
                  view_func=FormPage.as_view('form'))
 
