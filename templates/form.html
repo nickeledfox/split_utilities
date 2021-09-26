@@ -53,7 +53,7 @@
           </div>
         </div>
         <div class="form-outer">
-          <form action="/processed" method="post">
+          <form action="/form" method="post">
             <div class="page slide-page">
               <div class="title">Basic Info:</div>
               <div class="field">
@@ -171,31 +171,31 @@
         <p>Just fill-up the form and we will take care of the rest.</p>
         <img src="../static/images/pngegg.png" alt="keys" />
 
+        {% if calculated %}
         <div class="form-output__wrapper">
           <div class="form-output">
-            <!-- <p>{{payer1_firstname}} {{payer1_lastname}} pays {{payer1_total}}</p>
-              <br />
-              <p>{{payer2_firstname}} {{payer2_lastname}} pays {{payer2_total}}</p>
-              <br /> -->
-            <h2 class="form-output__title">Split Utilities</h2>
+            <h2 class="form-output__title">Utility Billing</h2>
             <h3 class="form-output__period">
-              <strong>Period:</strong> August, 2021
+              <strong>Bill Date:</strong> {{date}}
             </h3>
             <p>
               <strong>Payers:</strong> {{payer1_firstname}} {{payer1_lastname}}
               and {{payer2_firstname}} {{payer2_lastname}}
             </p>
-            <p><strong>Total due: </strong> 123.0</p>
+            <p><strong>Total Amount Due: </strong> {{total}}</p>
             <p>
-              E.Stone amount is: <br />
+              {{payer1_firstname[0].capitalize()}}.{{payer1_lastname}} due:
+              <br />
               <strong>{{payer1_total}}</strong>
             </p>
             <p>
-              N.Reed amount is: <br />
+              {{payer2_firstname[0].capitalize()}}.{{payer2_lastname}} due:
+              <br />
               <strong>{{payer2_total}}</strong>
             </p>
           </div>
         </div>
+        {% endif %}
       </div>
     </div>
     <script src="../static/js/main.min.js"></script>
