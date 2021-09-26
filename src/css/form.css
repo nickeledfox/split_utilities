@@ -18,13 +18,14 @@
   border-radius: 5px;
   display: flex;
   justify-content: center;
+  margin: 1rem;
   box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
     rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
     rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 }
 .form-container {
   width: 21rem;
-  background: rgba(255, 255, 255, 0.952);
+  background: var(--form-bg);
   border-radius: 5px 0 0 5px;
   padding: 50px 35px 10px 35px;
 }
@@ -32,7 +33,6 @@
 .form-right {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   position: relative;
   background-color: #6998a3;
   width: 21rem;
@@ -43,7 +43,7 @@
 }
 .form-right img {
   width: 15%;
-  padding: 5% 0 45% 0;
+  padding: 5% 0 15% 0;
   margin-left: auto;
   margin-right: auto;
 }
@@ -234,6 +234,9 @@ form .field.radio input {
 @media (max-width: 890px) {
   .form-right {
     display: none;
+  }
+  .form-container {
+    border-radius: 5px;
   }
 }
 @media (max-width: 435px) {

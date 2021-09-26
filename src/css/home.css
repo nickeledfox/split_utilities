@@ -11,7 +11,7 @@
   background: -webkit-linear-gradient(-45deg, var(--background));
   background: linear-gradient(135deg, var(--background));
   min-height: 100vh;
-  overflow: hidden;
+  overflow-x: hidden;
 }
 ::selection {
   color: var(--hover);

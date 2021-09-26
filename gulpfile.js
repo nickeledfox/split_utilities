@@ -6,7 +6,7 @@ const concat = require('gulp-concat');
 const del = require('del');
 
 function scripts() {
-  return src(['src/js/main.js', 'src/js/**/*.js'])
+  return src('src/js/**/*.js')
     .pipe(concat('main.min.js'))
     .pipe(uglify())
     .pipe(dest('static/js'));

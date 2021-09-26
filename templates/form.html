@@ -19,7 +19,6 @@
     <title>Split Utilities form</title>
   </head>
   <body class="body form__body">
-    <!-------------------------- form ----------------------->
     <div class="form__wrapper">
       <div class="form-container">
         <header class="form__header">Bill splitting form</header>
@@ -76,8 +75,8 @@
             <div class="page">
               <div class="title">Billing Info:</div>
               <div class="field">
-                <div class="label">{{form.billing_period.label}}</div>
-                {{form.billing_period}}
+                <div class="label">{{form.date_posted.label}}</div>
+                {{form.date_posted}}
               </div>
               <div class="field">
                 <div class="label">{{form.bill_total.label}}</div>
@@ -169,9 +168,34 @@
         </div>
       </div>
       <div class="form-right">
-        <p>We'll walk you through all of the bill splitting process steps.</p>
         <p>Just fill-up the form and we will take care of the rest.</p>
         <img src="../static/images/pngegg.png" alt="keys" />
+
+        <div class="form-output__wrapper">
+          <div class="form-output">
+            <!-- <p>{{payer1_firstname}} {{payer1_lastname}} pays {{payer1_total}}</p>
+              <br />
+              <p>{{payer2_firstname}} {{payer2_lastname}} pays {{payer2_total}}</p>
+              <br /> -->
+            <h2 class="form-output__title">Split Utilities</h2>
+            <h3 class="form-output__period">
+              <strong>Period:</strong> August, 2021
+            </h3>
+            <p>
+              <strong>Payers:</strong> {{payer1_firstname}} {{payer1_lastname}}
+              and {{payer2_firstname}} {{payer2_lastname}}
+            </p>
+            <p><strong>Total due: </strong> 123.0</p>
+            <p>
+              E.Stone amount is: <br />
+              <strong>{{payer1_total}}</strong>
+            </p>
+            <p>
+              N.Reed amount is: <br />
+              <strong>{{payer2_total}}</strong>
+            </p>
+          </div>
+        </div>
       </div>
     </div>
     <script src="../static/js/main.min.js"></script>

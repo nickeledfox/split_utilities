@@ -21,15 +21,30 @@ class FormPage(MethodView):
 class FormProcessing(MethodView):
 
     def post(self):
-        billform = BillForm(request.form)
-        amount = billform.bill_total.data
-        period = billform.date_posted.data
 
-        bill = params.Bill(float(amount), period)
-        payer1 = params.Roommate(billform.user_firstname.data,billform.user_last_name.data, days_in_place=float(billform.user_days_spent.data))
-        payer2 = params.Roommate(billform.roommate_fn.data, billform.roommate_ln.data, days_in_place=float(billform.roommate_days_spent.data))
+        form_data = BillForm(request.form)
 
-        return f'{payer1.first_name} pays {payer1.payment(bill, payer2)}'
+        bill = params.Bill\
+            (round(form_data.bill_total.data, 1),
+             form_data.date_posted.data)
+        payer1 = params.Roommate\
+            (form_data.user_firstname.data,
+             form_data.user_last_name.data,
+             form_data.user_days_spent.data)
+        payer2 = params.Roommate\
+            (form_data.roommate_fn.data,
+             form_data.roommate_ln.data,
+             form_data.roommate_days_spent.data)
+
+        return render_template\
+            ('form.html', form=form_data,
+             payer1_firstname = payer1.first_name,
+             payer1_lastname = payer1.last_name,
+             payer1_total = payer1.payment(bill, payer2),
+
+             payer2_firstname = payer2.first_name,
+             payer2_lastname = payer2.last_name,
+             payer2_total = payer2.payment(bill, payer1))
 
 
 @app.route('/', methods =["GET", "POST"])

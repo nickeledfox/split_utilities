@@ -1,4 +1,4 @@
-from wtforms import Form, StringField, SubmitField
+from wtforms import Form, StringField, SubmitField, FloatField
 from wtforms.fields.html5 import DateField
 
 
@@ -14,34 +14,34 @@ class BillForm(Form):
         ("Email Address",
          default="email@test.com")
 
-    billing_period = StringField\
-        ("Billing date",
-         default="2021/10/1")
-    date_posted = DateField\
-        ('Date', format='%Y-%m-%d')
 
-    user_days_spent = StringField\
+    date_posted = DateField\
+        ("Billing date")
+
+
+    user_days_spent = FloatField\
         ("Days spent at home",
          render_kw={"placeholder":
                         "(during the billing period)"},
          default="20")
 
-    bill_total = StringField\
+    bill_total = FloatField\
         ("Total amount",
          render_kw={"placeholder":
                         "Bill total amount"},
          default="100")
+         
 
     roommate_fn = StringField\
         ("First Name",
-         default="John")
+         default="James")
     roommate_ln = StringField\
         ("Last Name",
          default="Smith")
     roommate_email = StringField\
         ("Email Address",
          default="gmail@test.com")
-    roommate_days_spent = StringField\
+    roommate_days_spent = FloatField\
         ("Days roommate spent at home",
          render_kw={"placeholder":
                         "(during the billing period)"},
