@@ -13,7 +13,6 @@ class HomePage(MethodView):
 
 
 class FormPage(MethodView):
-
     def get(self):
         bill_form = BillForm()
         
@@ -25,7 +24,7 @@ class FormPage(MethodView):
         form_data = BillForm(request.form)
 
         bill = params.Bill\
-            (round(form_data.bill_total.data, 1),
+            (form_data.bill_total.data,
              form_data.date_posted.data)
         payer1 = params.Roommate\
             (form_data.user_firstname.data,
@@ -40,13 +39,13 @@ class FormPage(MethodView):
             ('form.html', form=form_data,
              calculated = True,
 
-             payer1_firstname = payer1.first_name,
-             payer1_lastname = payer1.last_name,
-             payer1_total = payer1.payment(bill, payer2),
+             payer1_firstname = payer1.first_name.capitalize(),
+             payer1_lastname = payer1.last_name.capitalize(),
+             payer1_total = round(payer1.payment(bill, payer2), 2),
 
-             payer2_firstname = payer2.first_name,
-             payer2_lastname = payer2.last_name,
-             payer2_total = payer2.payment(bill, payer1),
+             payer2_firstname = payer2.first_name.capitalize(),
+             payer2_lastname = payer2.last_name.capitalize(),
+             payer2_total = round(payer2.payment(bill, payer1), 2),
 
              total = form_data.bill_total.data,
              date = form_data.date_posted.data)
