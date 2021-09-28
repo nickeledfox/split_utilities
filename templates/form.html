@@ -167,11 +167,16 @@
           </form>
         </div>
       </div>
-      <div class="form-right">
-        <p>Just fill-up the form and we will take care of the rest.</p>
-        <img src="../static/images/pngegg.png" alt="keys" />
 
-        {% if calculated %}
+      {% if calculated %}
+      <div class="form-right">
+        <p>All set. See you next month!</p>
+        <img
+          class="form-right-img"
+          src="../static/images/pngegg.png"
+          alt="keys"
+        />
+
         <div class="form-output__wrapper">
           <div class="form-output">
             <h2 class="form-output__title">Utility Billing</h2>
@@ -184,19 +189,19 @@
             </p>
             <p><strong>Total Amount Due: </strong> {{total}}</p>
             <p>
-              {{payer1_firstname[0].capitalize()}}.{{payer1_lastname}} due:
+              {{payer1_firstname[0]}}.{{payer1_lastname}} due:
               <br />
               <strong>{{payer1_total}}</strong>
             </p>
             <p>
-              {{payer2_firstname[0].capitalize()}}.{{payer2_lastname}} due:
+              {{payer2_firstname[0]}}.{{payer2_lastname}} due:
               <br />
               <strong>{{payer2_total}}</strong>
             </p>
           </div>
         </div>
-        {% endif %}
       </div>
+      {% endif %}
     </div>
     <script src="../static/js/main.min.js"></script>
   </body>

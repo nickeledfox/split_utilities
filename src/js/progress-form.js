@@ -1,5 +1,3 @@
-'use strict';
-
 const slidePage = document.querySelector('.slide-page');
 const nextBtnFirst = document.querySelector('.firstNext');
 const prevBtnSec = document.querySelector('.prev-1');
@@ -13,7 +11,17 @@ const progressCheck = document.querySelectorAll('.step .check');
 const bullet = document.querySelectorAll('.step .bullet');
 let current = 1;
 
+const formBorder = document.querySelector('.form-container');
+const rightForm = document.querySelector('.form-right');
+
+function formBorderStyle() {
+  if (!rightForm) {
+    formBorder.style.borderRadius = '5px';
+  }
+}
 if (document.querySelector('.form__body')) {
+  formBorderStyle();
+
   // Created by: https://www.codingnepalweb.com/multi-step-form-html-css-javascript/
   // with card design so I didn't change it, only implemented and customized the UI part a bit
   nextBtnFirst.addEventListener('click', function (event) {
@@ -49,7 +57,6 @@ if (document.querySelector('.form__body')) {
       location.reload();
     }, 800);
   });
-
   prevBtnSec.addEventListener('click', function (event) {
     event.preventDefault();
     slidePage.style.marginLeft = '0%';
