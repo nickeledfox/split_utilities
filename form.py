@@ -3,7 +3,6 @@ from wtforms.fields.html5 import DateField
 
 
 class BillForm(Form):
-
     user_firstname = StringField\
         ("First Name",
          default="John")
@@ -14,10 +13,8 @@ class BillForm(Form):
         ("Email Address",
          default="email@test.com")
 
-
     date_posted = DateField\
         ("Billing date")
-
 
     user_days_spent = FloatField\
         ("Days spent at home",
@@ -30,7 +27,6 @@ class BillForm(Form):
          render_kw={"placeholder":
                         "Bill total amount"},
          default="100")
-         
 
     roommate_fn = StringField\
         ("First Name",
@@ -49,11 +45,11 @@ class BillForm(Form):
 
     email_options = RadioField\
         ('Label',
-         choices=[('dont-send', 'Don\'t send'),
+         choices=[('don\'t-send', 'Don\'t send'),
                   ('to-roommate', 'To my roommate'),
                   ('to-both-us', 'To both us'),
                   ('send-to-me', 'Send to me')],
-                  default="dont-send")
+                  default="don't-send")
 
 
     submit_button = SubmitField("Calculate")
