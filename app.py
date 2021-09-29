@@ -3,6 +3,7 @@ from flask.views import MethodView
 
 from form import BillForm
 from split import params
+from email_send import Email
 
 app = Flask(__name__)
 
@@ -19,7 +20,6 @@ class FormPage(MethodView):
         return render_template('form.html', form=bill_form)
         
 
-
     def post(self):
         form_data = BillForm(request.form)
 
@@ -35,6 +35,9 @@ class FormPage(MethodView):
              form_data.roommate_ln.data,
              form_data.roommate_days_spent.data)
 
+        email_options = form_data.email_options.data
+
+
         return render_template\
             ('form.html', form=form_data,
              calculated = True,
@@ -48,7 +51,8 @@ class FormPage(MethodView):
              payer2_total = round(payer2.payment(bill, payer1), 2),
 
              total = form_data.bill_total.data,
-             date = form_data.date_posted.data)
+             date = form_data.date_posted.data,
+             email_options = email_options)
 
 
 @app.route('/', methods =["GET", "POST"])

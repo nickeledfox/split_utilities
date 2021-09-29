@@ -1,4 +1,4 @@
-from wtforms import Form, StringField, SubmitField, FloatField
+from wtforms import Form, StringField, SubmitField, FloatField, RadioField
 from wtforms.fields.html5 import DateField
 
 
@@ -46,5 +46,14 @@ class BillForm(Form):
          render_kw={"placeholder":
                         "(during the billing period)"},
          default="12")
+
+    email_options = RadioField\
+        ('Label',
+         choices=[('dont-send', 'Don\'t send'),
+                  ('to-roommate', 'To my roommate'),
+                  ('to-both-us', 'To both us'),
+                  ('send-to-me', 'Send to me')],
+                  default="dont-send")
+
 
     submit_button = SubmitField("Calculate")

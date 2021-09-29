@@ -124,39 +124,12 @@
                 <div class="label">{{form.roommate_days_spent.label}}</div>
                 {{form.roommate_days_spent}}
               </div>
+
               <div class="field radio">
-                <div class="label">Statment Email:</div>
-                <div class="radio-comtainer">
-                  <div>
-                    <input
-                      type="radio"
-                      id="no-email"
-                      name="email-options"
-                      value="Don't send"
-                      checked
-                    />
-                    <label for="no-email">Don't send</label>
-                  </div>
-                  <div>
-                    <input
-                      type="radio"
-                      id="both-email"
-                      name="email-options"
-                      value="For both"
-                    />
-                    <label for="both-email">For both</label>
-                  </div>
-                  <div>
-                    <input
-                      type="radio"
-                      id="email-to-user"
-                      name="email-options"
-                      value="Only to me"
-                    />
-                    <label for="email-to-user">Only to me</label>
-                  </div>
-                </div>
+                <div class="label bold-label">Statment Email:</div>
+                <div>{{form.email_options}}</div>
               </div>
+
               <div class="field btns details-btns">
                 <button class="prev-3 prev">
                   <i class="fas fa-caret-left"></i> Go Back
@@ -198,6 +171,7 @@
               <br />
               <strong>{{payer2_total}}</strong>
             </p>
+            <p>{{email_options}}</p>
           </div>
         </div>
       </div>

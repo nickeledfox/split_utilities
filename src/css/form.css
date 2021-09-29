@@ -1,5 +1,8 @@
 @import url("https://fonts.googleapis.com/css?family=Poppins:500,700&display=swap");
 
+ul {
+  list-style: none;
+}
 ::placeholder {
   color: var(--border);
 }
@@ -98,6 +101,10 @@
   margin: 45px 0;
   display: flex;
   position: relative;
+}
+.bold-label {
+  font-size: 1.5rem;
+  margin-top: 0.5rem;
 }
 form .page .field .label {
   position: absolute;
@@ -242,18 +249,26 @@ form .page .btns button.next {
   display: block;
   color: #fff;
 }
-
+#email_options {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  margin-top: 1.5rem;
+}
+#email_options-1,
+#email_options-3 {
+  margin-left: 1rem;
+}
 form .field.radio input {
   height: 1rem;
   width: 1rem;
   border: 1px solid var(--border);
   font-size: 8px;
-  color: var(--font);
 }
 .details-btns {
-  padding-top: 20px;
+  padding-top: 1.5rem;
 }
-
 @media (max-width: 890px) {
   .form__wrapper {
     flex-direction: column;
@@ -273,9 +288,6 @@ form .field.radio input {
   .wrapper {
     width: 100vw;
     overflow-x: hidden;
-  }
-  .form-container {
-    padding: 0;
   }
   .form-container header {
     text-align: center;
