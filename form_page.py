@@ -27,7 +27,6 @@ class FormPage(MethodView):
              form_data.roommate_ln.data,
              form_data.roommate_days_spent.data)
 
-
         if form_data.date_posted.data is None:
             date = f'No date provided'
         else:
@@ -47,4 +46,6 @@ class FormPage(MethodView):
 
              total = form_data.bill_total.data,
              date = date,
-             email_options = form_data.email_options.data)
+             email_options = form_data.email_options.data
+
+             )
