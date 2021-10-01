@@ -8,6 +8,7 @@ flask = "*"
 wtforms = "*"
 fpdf = "*"
 python-dotenv = "*"
+email-validator = "*"
 
 [dev-packages]
 

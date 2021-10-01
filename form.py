@@ -1,16 +1,17 @@
 from wtforms import Form, StringField, SubmitField, FloatField, RadioField
-from wtforms.fields.html5 import DateField
+from wtforms.fields.html5 import DateField, EmailField
+from wtforms.validators import DataRequired, Email
 
 
 class BillForm(Form):
     user_firstname = StringField\
-        ("First Name",
+        ("First Name", validators=[DataRequired()],
          default="John")
     user_last_name = StringField\
-        ("Last Name",
+        ("Last Name", validators=[DataRequired()],
          default="Doe")
-    user_email = StringField\
-        ("Email Address",
+    user_email = EmailField\
+        ("Email Address", validators=[Email()],
          default="email@test.com")
 
     date_posted = DateField\
@@ -29,13 +30,13 @@ class BillForm(Form):
          default="100")
 
     roommate_fn = StringField\
-        ("First Name",
+        ("First Name", validators=[DataRequired()],
          default="James")
     roommate_ln = StringField\
-        ("Last Name",
+        ("Last Name", validators=[DataRequired()],
          default="Smith")
-    roommate_email = StringField\
-        ("Email Address",
+    roommate_email = EmailField\
+        ("Email Address", validators=[Email()],
          default="gmail@test.com")
     roommate_days_spent = FloatField\
         ("Days roommate spent at home",
